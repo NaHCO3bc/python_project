@@ -8,8 +8,10 @@ from selenium import webdriver
 damai_url = "https://www.damai.cn/"
 # 登录页
 login_url = "https://passport.damai.cn/login?ru=https%3A%2F%2Fwww.damai.cn%2F"
-# 抢票目标页
-target_url = 'https://detail.damai.cn/item.htm?spm=a2oeg.home.card_0.ditem_2.591b23e1BCkzrT&id=706134949499'
+# 抢票目标页，根据需求修改
+target_url = 'https://detail.damai.cn/item.htm?spm=a2oeg.search_category.0.0.28f74d15jy9OZY&id=710947802995' \
+             '&clicktitle=2023%E9%99%88%E7%B2%92%E2%80%9C%E6%B4%84%E6%B8%B8%E2%80%9D%E5%B7%A1%E5%9B%9E%E6%BC%94%E5%94' \
+             '%B1%E4%BC%9A-%E5%B9%BF%E5%B7%9E%E7%AB%99 '
 
 
 class Concert:
@@ -63,7 +65,7 @@ class Concert:
     def enter_concert(self):
         """打开浏览器"""
         print('###打开浏览器，进入大麦网###')
-        # self.driver.maximize_window()           # 最大化窗口
+        self.driver.maximize_window()           # 最大化窗口
         # 调用登陆
         self.login()  # 先登录再说
         self.driver.refresh()  # 刷新页面
@@ -71,9 +73,8 @@ class Concert:
         print("###登录成功###")
 
         # 后续德云社可以讲
-        if self.isElementExist('/html/body/div[2]/div/div[1]/div[1]/div/div[2]/div[5]/div[3]/div[2]/div/div[2]'):
-            self.driver.find_element_by_xpath('/html/body/div[2]/div/div[1]/div[1]/div/div[2]/div[5]/div[3]/div['
-                                              '2]/div/div[2]').click()
+        # if self.isElementExist('/html/body/div[2]/div/div[1]/div[1]/div/div[2]/div[4]/div/div[2]'):
+        #     self.driver.find_element_by_xpath('/html/body/div[2]/div/div[1]/div[1]/div/div[2]/div[4]/div/div[2]').click()
 
     def isElementExist(self, element):
         flag = True
